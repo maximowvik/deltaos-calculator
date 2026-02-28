@@ -100,16 +100,14 @@ class _HomeScreenState extends State<HomeScreen> {
             alignment: Alignment.bottomLeft,
             child: Row(
               children: [
-                // Знак "=" фиксированной ширины
                 SizedBox(
-                  width: 50, // Фиксированная ширина для "="
+                  width: 50,
                   child: Text(
                     "=",
                     textAlign: TextAlign.left,
                     style: TextStyle(fontSize: 40, color: color_accent),
                   ),
                 ),
-                // Результат занимает ВСЁ оставшееся пространство
                 Expanded(
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -118,8 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       resultOutput == 0.0
                           ? ""
                           : formatNumber(resultOutput)['display']!,
-                      textAlign:
-                          TextAlign.right, // Выравнивание по правому краю
+                      textAlign: TextAlign.right,
                       style: TextStyle(
                         fontSize: 40,
                         color: color_font,
