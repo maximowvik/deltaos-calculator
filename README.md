@@ -88,6 +88,8 @@ flutter build web --release
 
 ### 🎨 Интерфейс
 
+<img width="384" height="713" alt="Снимок экрана от 2026-03-01 22-36-32" src="https://github.com/user-attachments/assets/a9910e45-8cc8-4194-adbf-c6a252f0c659" />
+
 
 ### Цветовая схема DeltaOS
 
@@ -173,4 +175,3 @@ DeltaOS Calculator — точность и стиль в каждой опера
 <div align="center">
 Помните: Дважды проверяйте расчёты перед важными решениями! 🧮
 </div>
-```
