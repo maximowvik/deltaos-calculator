@@ -87,9 +87,9 @@ flutter build web --release
 ```
 
 ### 🎨 Интерфейс
-
-<img width="384" height="713" alt="Снимок экрана от 2026-03-01 22-36-32" src="https://github.com/user-attachments/assets/a9910e45-8cc8-4194-adbf-c6a252f0c659" />
-
+<div align="center">
+<img width="304" height="633" alt="Снимок экрана от 2026-03-01 22-36-32" src="https://github.com/user-attachments/assets/a9910e45-8cc8-4194-adbf-c6a252f0c659" />
+</div>
 
 ### Цветовая схема DeltaOS
 
