@@ -105,11 +105,12 @@ flutter build web --release
 ```
 calculator/
 ├── lib/
-│   ├── main.dart                 # Точка входа
+│   └── main.dart                 # Точка входа
 ├── assets/
 |   └── icons/
-|       └── logo.png
-└── pubspec.yaml                  # Зависимости
+|       └── logo.png              # Логотип приложения
+├── pubspec.yaml                  # Зависимости
+└── README.md                     # Файл с описанием и интсрукцией
 ```
 ### 💡 Полезные советы
 

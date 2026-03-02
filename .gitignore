@@ -27,6 +27,9 @@ Thumbs.db
 .pub-cache/
 .pub/
 /build/
+linux/
+*.zip
+*.lock
 
 # Symbolication related
 app.*.symbols
