@@ -27,7 +27,7 @@ Thumbs.db
 .pub-cache/
 .pub/
 /build/
-linux/
+/linux/
 *.zip
 *.lock
 
