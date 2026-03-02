@@ -106,21 +106,9 @@ flutter build web --release
 calculator/
 ├── lib/
 │   ├── main.dart                 # Точка входа
-│   ├── app.dart                  # Корневой виджет с темой
-│   ├── constants/
-│   │   ├── colors.dart           # Цвета DeltaOS
-│   │   └── theme.dart            # Тема приложения
-│   ├── models/
-│   │   └── calculator_model.dart # Логика вычислений
-│   ├── providers/
-│   │   └── calculator_provider.dart # State management
-│   ├── screens/
-│   │   └── home_screen.dart      # Главный экран
-│   └── widgets/
-│       ├── calculator_button.dart    # Кнопка калькулятора
-│       ├── keypad.dart               # Панель кнопок
-│       └── display.dart              # Дисплей результата
-├── test/                         # Тесты
+├── assets/
+|   └── icons/
+|       └── logo.png
 └── pubspec.yaml                  # Зависимости
 ```
 ### 💡 Полезные советы
