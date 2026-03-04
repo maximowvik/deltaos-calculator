@@ -11,8 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  window_size: ^0.1.0
-  cupertino_icons: ^1.0.8
+  window_size: 0.1.0
+  cupertino_icons: 1.0.8
+  window_manager: 0.3.9
 
 dev_dependencies:
   flutter_test:

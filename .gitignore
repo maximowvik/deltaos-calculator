@@ -1,48 +1,80 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
+# ============================================
+# ОС и системные файлы
+# ============================================
 .DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
-migrate_working_dir/
 Thumbs.db
+*.swp
+*.log
 
-# IntelliJ related
+# ============================================
+# IDE и редакторы
+# ============================================
+# IntelliJ / Android Studio
+.idea/
 *.iml
 *.ipr
 *.iws
-.idea/
 
+# VS Code
+.vscode/
 
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
+# Atom
+.atom/
+
+# ============================================
+# Flutter / Dart
+# ============================================
+# Инструменты и кэш
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
-.pub-cache/
+.packages
 .pub/
+.pub-cache/
+
+# Сборка
 /build/
-/linux/
-*.zip
-*.lock
+**/doc/api/
+.buildlog/
 
-# Symbolication related
-app.*.symbols
+# iOS
+**/ios/Flutter/.last_build_id
 
-# Obfuscation related
-app.*.map.json
-
-# Android Studio will place build artifacts here
+# Android
 /android/app/debug
 /android/app/profile
 /android/app/release
 
-.vscode
-.packages
-.metadata
-pubspec.lock
+# ============================================
+# Символы и обфускация
+# ============================================
+app.*.symbols
+app.*.map.json
+
+# ============================================
+# Другие
+# ============================================
+.history
+.svn/
+migrate_working_dir/
+
+# ============================================
+# Языки / Фреймворки (если используете)
+# ============================================
+*.class      # Java
+*.pyc        # Python
+
+# ============================================
+# Архивы и локальные файлы
+# ============================================
+*.zip
+*.lock
+
+# ============================================
+# Платформы (раскомментируйте если не нужны в репо)
+# ============================================
+# /linux/
+# /macos/
+# /windows/
+# /ios/
+# /android/

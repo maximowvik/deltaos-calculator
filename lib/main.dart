@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart' as window_size;
+import 'package:window_manager/window_manager.dart';
 
 const Map<String, Map<String, Color>> themeConfig = {
   "dark": {
@@ -30,7 +31,17 @@ const List<List<String>> buttons = [
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await windowManager.ensureInitialized();
+
   const Size windowSize = Size(400, 700);
+
+  WindowOptions windowOptions = const WindowOptions(
+    size: windowSize,
+    center: true,
+    title: 'DeltaOS Calculator',
+    minimumSize: windowSize,
+    maximumSize: windowSize,
+  );
 
   if (Platform.isLinux || Platform.isWindows || Platform.isMacOS) {
     window_size.setWindowTitle('DeltaOS Calculator');
@@ -49,6 +60,15 @@ Future<void> main() async {
       );
     }
   }
+
+  await windowManager.waitUntilReadyToShow(windowOptions, () async {
+    await windowManager.show();
+    await windowManager.focus();
+
+    if (Platform.isWindows || Platform.isLinux) {
+      await windowManager.setIcon("assets/icons/logo.png");
+    }
+  });
 
   runApp(MaterialApp(
     theme: ThemeData(
