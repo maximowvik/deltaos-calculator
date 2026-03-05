@@ -49,13 +49,7 @@ static void my_application_activate(GApplication* application) {
   
   g_autofree gchar* exe_path = g_file_read_link("/proc/self/exe", NULL);
   g_autofree gchar* exe_dir = g_path_get_dirname(exe_path);
-  g_autofree gchar* icon_path = g_build_filename(
-      exe_dir, "data", "flutter_assets", "assets", "icons", "logo.png", NULL);
 
-  g_autoptr(GError) icon_error = nullptr;
-  if (!gtk_window_set_icon_from_file(window, icon_path, &icon_error)) {
-    g_warning("Failed to load icon: %s", icon_error->message);
-  }
 
   gtk_window_set_default_size(window, 1280, 720);
   gtk_widget_show(GTK_WIDGET(window));

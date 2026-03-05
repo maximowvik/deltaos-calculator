@@ -66,7 +66,7 @@ Future<void> main() async {
     await windowManager.focus();
 
     if (Platform.isWindows || Platform.isLinux) {
-      await windowManager.setIcon("assets/icons/logo.png");
+      await windowManager.setIcon("assets/icons/deltaos-calculator.png");
     }
   });
 
