@@ -31,19 +31,20 @@ const List<List<String>> buttons = [
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await windowManager.ensureInitialized();
-
-  const Size windowSize = Size(400, 700);
-
-  WindowOptions windowOptions = const WindowOptions(
-    size: windowSize,
-    center: true,
-    title: 'DeltaOS Calculator',
-    minimumSize: windowSize,
-    maximumSize: windowSize,
-  );
-
+  // Только для desktop платформ!
   if (Platform.isLinux || Platform.isWindows || Platform.isMacOS) {
+    await windowManager.ensureInitialized();
+
+    const Size windowSize = Size(400, 700);
+
+    WindowOptions windowOptions = const WindowOptions(
+      size: windowSize,
+      center: true,
+      title: 'DeltaOS Calculator',
+      minimumSize: windowSize,
+      maximumSize: windowSize,
+    );
+
     window_size.setWindowTitle('DeltaOS Calculator');
     window_size.setWindowMinSize(windowSize);
     window_size.setWindowMaxSize(windowSize);
@@ -51,32 +52,23 @@ Future<void> main() async {
     final screen = await window_size.getCurrentScreen();
     if (screen != null) {
       final screenFrame = screen.frame;
-      final left =
-          screenFrame.left + (screenFrame.width - windowSize.width) / 2;
-      final top =
-          screenFrame.top + (screenFrame.height - windowSize.height) / 2;
+      final left = screenFrame.left + (screenFrame.width - windowSize.width) / 2;
+      final top = screenFrame.top + (screenFrame.height - windowSize.height) / 2;
       window_size.setWindowFrame(
         Rect.fromLTWH(left, top, windowSize.width, windowSize.height),
       );
     }
+
+    await windowManager.waitUntilReadyToShow(windowOptions, () async {
+      await windowManager.show();
+      await windowManager.focus();
+      await windowManager.setIcon("assets/icons/deltaos-calculator.png");
+    });
   }
 
-  await windowManager.waitUntilReadyToShow(windowOptions, () async {
-    await windowManager.show();
-    await windowManager.focus();
-
-    if (Platform.isWindows || Platform.isLinux) {
-      await windowManager.setIcon("assets/icons/deltaos-calculator.png");
-    }
-  });
-
   runApp(MaterialApp(
-    theme: ThemeData(
-      brightness: Brightness.light,
-    ),
-    darkTheme: ThemeData(
-      brightness: Brightness.dark,
-    ),
+    theme: ThemeData(brightness: Brightness.light),
+    darkTheme: ThemeData(brightness: Brightness.dark),
     themeMode: ThemeMode.system,
     home: HomeScreen(),
   ));
