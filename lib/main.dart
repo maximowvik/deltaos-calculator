@@ -70,7 +70,7 @@ Future<void> main() async {
     theme: ThemeData(brightness: Brightness.light),
     darkTheme: ThemeData(brightness: Brightness.dark),
     themeMode: ThemeMode.system,
-    home: HomeScreen(),
+    home: const HomeScreen(),
   ));
 }
 
@@ -90,13 +90,13 @@ class _HomeScreenState extends State<HomeScreen> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final cfg = themeConfig[isDark ? "dark" : "light"]!;
 
-    final color_primary = cfg["primary"]!;
-    final color_accent = cfg["accent"]!;
-    final color_second = cfg["second"]!;
-    final color_font = cfg["font"]!;
+    final colorPrimary = cfg["primary"]!;
+    final colorAccent = cfg["accent"]!;
+    final colorSecond = cfg["second"]!;
+    final colorFont = cfg["font"]!;
 
     return Material(
-      color: color_primary,
+      color: colorPrimary,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -105,10 +105,10 @@ class _HomeScreenState extends State<HomeScreen> {
             height: math.max(
                 0, (MediaQuery.sizeOf(context).height / 100) * 15 - 10),
             decoration: BoxDecoration(
-              color: color_primary,
-              border: Border(bottom: BorderSide(color: color_accent)),
+              color: colorPrimary,
+              border: Border(bottom: BorderSide(color: colorAccent)),
             ),
-            padding: EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.only(bottom: 10),
             alignment: Alignment.bottomLeft,
             child: Row(
               children: [
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text(
                     "=",
                     textAlign: TextAlign.left,
-                    style: TextStyle(fontSize: 40, color: color_accent),
+                    style: TextStyle(fontSize: 40, color: colorAccent),
                   ),
                 ),
                 Expanded(
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       textAlign: TextAlign.right,
                       style: TextStyle(
                         fontSize: 40,
-                        color: color_font,
+                        color: colorFont,
                         fontWeight: FontWeight.w900,
                       ),
                       enableInteractiveSelection: true,
@@ -145,24 +145,24 @@ class _HomeScreenState extends State<HomeScreen> {
             width: math.max(0, MediaQuery.sizeOf(context).width - 20),
             height: math.max(
                 0, (MediaQuery.sizeOf(context).height / 100) * 15 - 20),
-            margin: EdgeInsets.only(bottom: 10, top: 10),
+            margin: const EdgeInsets.only(bottom: 10, top: 10),
             decoration: BoxDecoration(
-              color: color_primary,
+              color: colorPrimary,
               borderRadius: BorderRadius.circular(10),
             ),
-            padding: EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.only(bottom: 10),
             alignment: Alignment.bottomRight,
-            child: buildColoredInput(stringInput, color_font, color_accent),
+            child: buildColoredInput(stringInput, colorFont, colorAccent),
           ),
           Container(
             width: math.max(0, MediaQuery.sizeOf(context).width - 20),
             height: math.max(
                 0, (MediaQuery.sizeOf(context).height / 100) * 70 - 10),
             decoration: BoxDecoration(
-              color: color_second,
+              color: colorSecond,
               borderRadius: BorderRadius.circular(10),
             ),
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             child: Column(
               children: [
                 for (final row in buttons)
@@ -179,18 +179,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                     backgroundColor:
                                         double.tryParse(label) != null ||
                                                 label == '.'
-                                            ? color_primary
-                                            : color_accent,
+                                            ? colorPrimary
+                                            : colorAccent,
                                     foregroundColor:
                                         double.tryParse(label) != null ||
                                                 label == '.'
-                                            ? color_font
+                                            ? colorFont
                                             : themeConfig['dark']!['font']!,
                                     minimumSize: const Size(80, 80),
                                     padding: const EdgeInsets.all(8),
                                     textStyle: TextStyle(
                                       fontSize: 20,
-                                      color: color_font,
+                                      color: colorFont,
                                       fontWeight: FontWeight.w900,
                                     ),
                                     shape: RoundedRectangleBorder(
@@ -329,7 +329,7 @@ double eval(String args) {
 
   void applyOp() {
     if (ops.isEmpty) {
-      throw FormatException("Внутренняя ошибка: нет операций для применения");
+      throw const FormatException("Внутренняя ошибка: нет операций для применения");
     }
 
     final op = ops.removeLast();
@@ -343,7 +343,7 @@ double eval(String args) {
 
       switch (op) {
         case "√":
-          if (a < 0) throw FormatException("Корень из отрицательного числа!");
+          if (a < 0) throw const FormatException("Корень из отрицательного числа!");
           values.add(math.sqrt(a));
           break;
       }
@@ -351,7 +351,7 @@ double eval(String args) {
     }
 
     if (values.length < 2) {
-      throw FormatException("Недостаточно чисел для вычисления");
+      throw const FormatException("Недостаточно чисел для вычисления");
     }
 
     final b = values.removeLast();
